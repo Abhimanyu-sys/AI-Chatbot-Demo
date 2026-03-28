@@ -11,10 +11,10 @@ CORS(app)
 # Google Sheets setup
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
 
-creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
-client_sheet = gspread.authorize(creds)
+# creds = ServiceAccountCredentials.from_json_keyfile_name("credentials.json", scope)
+# client_sheet = gspread.authorize(creds)
 
-sheet = client_sheet.open("Leads Data").sheet1
+# sheet = client_sheet.open("Leads Data").sheet1
 
 
 @app.route("/chat", methods=["POST"])
@@ -28,7 +28,7 @@ def chat():
         phone = ''.join(filter(str.isdigit, user_message))
         time = datetime.now().strftime("%Y-%m-%d %H:%M")
 
-        sheet.append_row([name, phone, time])
+        # sheet.append_row([name, phone, time])
 
         reply = "Thank you! Our team will contact you soon."
 
